@@ -475,30 +475,19 @@ the transactional entities.
 
 ![Configuration migration login screen](media/config-migration-continue.png "Configuration migration - login")
 
-
 1. Select “Office 365” as deployment type .
 
-2.  Select “Sign in as current user” option to login as current user *or* select
-    “Show Advanced” to enter different user credentials.
-
-3. Select “Display list of available organization” option.
-4. Select “Login” to move on to the next dialog window.
-
-![](media/7a1e5cde1a5101a1ea5b929fb9c6e9ac.png)
-
-
+1. Select “Sign in as current user” option to login as current user *or* select **Show Advanced** to enter different user credentials.
+1. Select “Display list of available organization” option.
+1. Select “Login” to move on to the next dialog window.
+![screen where you choose your organization](media/choose-org.png "Configuration migration - choose your organization")
 1. Select your target environment where the transactional sample data will be
-    imported.
-2. Select “Login” to move on to the next dialog window.
-
-![](media/9ce4b9026d29014c2b0f6d16e1ed1528.png)
-
-
+1. Select “Login” to move on to the next dialog window.
+![Click "import data"](media/import-data.png "import data screen")
 1. Download the AIBCustomerSatisfactionSampleData.zip file from <https://go.microsoft.com/fwlink/?linkid=2133095>
-2. After you verify that you are connected to the correct environment, select the “…” then choose the import data file, “AIBCustomerSatisfactionSampleData.zip”. Then, select “Import data” to start
-    the import shown in the following screen.
+1. After you verify that you are connected to the correct environment, select the “…” then choose the import data file **AIBCustomerSatisfactionSampleData.zip**. Then, select **Import data**” to start the import shown in the following screen.
 
-![A screenshot of a social media post Description automatically generated](media/66db73cc402daa808734cb18ab11eef3.png)
+![](media/select-zip file.png)
 
 You should see something like this with no errors. You can minimize but *do not close this window* until the import completes.
 
@@ -507,31 +496,21 @@ You should see something like this with no errors. You can minimize but *do not 
 ## Configure and run dataflows
 
 Each starter kit dataflow must be reconfigured to point to your organization’s
-uniform record locator (URL) known as the “Organization URL” or “Service Root
-URL”. Your organization URL can be found by following the steps mentioned here:
-[View or download developer
-resources](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/view-download-developer-resources).
+uniform record locator (URL) known as the “Organization URL” or “Service Root URL”. Your organization URL can be found by following the steps mentioned here: [View or download developer resources](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/view-download-developer-resources).
 
 Follow these steps in Power Apps to configure each dataflow.
 
-![](media/982cbd29cc7af278b4ddef343f959a1d.png)
+![Power Apps Dataflows screen](media/dataflows-screen.png "Dataflows screen in Power Apps")
 
 1. On the left-side of your Power Apps, expand “Data” then select “Dataflows”
     to view the existing dataflows. You should see dataflows similar to those
     shown in the image above.
-
-![](media/729d434d5d639931c4cfb88daf9241de.png)
-
+![Edit dropdown menu ](media/dataflows-edit-menu.png "Edit dropdown menu")
 1. At the end of each dataflow row is a “…”. Select the “…” to configure the
-    dataflow, and then select “Edit”.
-
-![](media/7b6fe62a2b6932bd4c4bea243c1b51ab.png)
-
-
+    dataflow, and then select **Edit**.
+![](media/.png)
 1. Select the “Advanced editor” Query option. This opens the advanced editor.
-
-![](media/e43ccd6b593014ba9a955ff3870baefe.png)
-
+![Advanced editor](media/advanced-editor.png "Advanced editor screen")
 1. Modify with your organization’s URL (Service Root URL) between the set of
     double quotes (“ ”). This appears after ‘*Source = OData.Feed(’* text. Then,
     select “OK” when you’re done to go back to the *Power Query* screen.
@@ -540,28 +519,28 @@ Follow these steps in Power Apps to configure each dataflow.
 > The “https://org646c0a84.api.crm10.dynamics.com/api/data/v9.1/” shown above
 > needs to be replaced with your Organization URL.
 
-![](media/b4dc0b0d692cc9e0a25ae2b133e676de.png)
+![Power query screen](media/configure-connection.png "Select configure connection")
 
 1. Select “Configure Connection” to enter your organization credentials.
 
-![](media/320037f71103630b20e7d4af03ec48a1.png)
+![Enter credentials screen](media/enter-credentials.png "select sign in")
 
 1. Select **Organizational Account** on the **Authentication Kind** drop down menu, and then select “Sign in” and complete the sign in process.
 
-![](media/a055afd9cd0b05cdef68eeb366170fe3.png)
+![Enter credentials screen - connect](media/enter-credentials2.png "select connect")
 
 > You should see a “you are currently signed in.” message just above **Sign
 > in as a different user**.
 
 1. Select **Connect**.
 
-![](media/2a990381202088cbd3327e26ccfebc6e.png)
+![Power Query screen](media/powerquery-datarows.png "screen showing data rows")
 
 You should see something like this screen showing data rows from the source entity the dataflow will be reading to populate the corresponding fact entity. Yours may be different depending on the dataflow you are configuring.
 
 1. Select **Next**
 
-![](media/7a6c0212d863af66ca4605caa10ea189.png)
+![Power query field mapping screen](media/field-mapping.png "Power query field mapping screen")
 
 1. In this window:
 
@@ -574,11 +553,11 @@ You should see something like this screen showing data rows from the source enti
     d.  Under **Field mapping**, map the *Source columns* to *Destination fields* based on the chosen *Destination entity*, then select *Next*. Refer to the [Dataflow Mapping
             Table](#dataflow-mapping-table) below for details.
 
-![](media/36909653408e1e0ef2a243c52b6e1922.png)
+![Refresh settings screen](media/pq-refresh-settings.png "select refresh manually on the refresh settings screen")
 
 1. Select **Refresh manually** then click **Create**.
 
-![](media/8b88a5d32cd82c6433caf7e147e482e7.png)
+![Next refresh in progress status](media/in-progress.png "status message")
 
 > You should see something like the above where **Next Refresh** should show
 > **In progress** for the respective dataflow you had just configured.
