@@ -347,9 +347,7 @@ Bob closes the page.
 
 ![AI Builder Models](media/models-screen.png "Models screen in AI Builder")
 
-
 ![Model details](media/model-details.png "Model details screen in AI Builder")
-
 
 Bob opens the *AI Builder Models* page and locates his model, *Is Happy
 Customer*. When it shows *Trained*, Bob opens the model.
@@ -416,7 +414,7 @@ additional customer details in any of the related entities.
 
 ![Customer details screen](media/customer-details.png "Customeretails screen")
 
-## Starter Kit Configuration Steps
+## Starter Kit configuration steps
 
 In this section, we'll configure the starter kit in your environment:
 
@@ -445,11 +443,11 @@ Create an environment:
 
    * AIB update Account Dimension
 
-    > **Note:**Execute this only after successful completion of all the above-mentioned dataflows!
+        **Note:** Execute this only after successful completion of all the above-mentioned dataflows!
 
 1. Optionally, you can run the following Power Automate flows to get hands-on experience running the Sentiment analysis model against the customer feedback and order product comments.
 
-   > **Note:**These were executed, therefore already populated, when you imported the transactional data following the steps in the **Import Data Using the CMT Tool** section.
+    **Note:** These were executed, therefore already populated, when you imported the transactional data following the steps in the **Import Data Using the CMT Tool** section.
 
    * AIB Execute Sentiment Analysis Customer Feedback
    * AIB Execute Sentiment Analysis Order Product
@@ -465,7 +463,7 @@ the transactional entities.
 1. Download the CMT NuGet package from NuGet’s [Dynamics 365 Configuration Migration Tool](https://www.nuget.org/packages/Microsoft.CrmSdk.XrmTooling.ConfigurationMigration.Wpf) web page.
 2. Rename the Nuget file extension from: “.nupkg” to “.zip”.
 3. Unzip the renamed file.
-4. Run “DataMigrationUtility.exe" located in the “tools” folder which opens the following screen:
+4. Run “**DataMigrationUtility.exe**,  in the **tools** folder to open the following screen:
 
     ![Configuration migration import data](media/config-migration.png "Configuration migration import data screen")
 
@@ -473,19 +471,19 @@ the transactional entities.
 
     ![Configuration migration login screen](media/config-migration-continue.png "Configuration migration - login")
 
-1. Select “Office 365” as deployment type .
+1. Select the **Office 365**” deployment type .
 
-1. Select “Sign in as current user” option to login as current user *or* select **Show Advanced** to enter different user credentials.
-1. Select “Display list of available organization” option.
+1. Select **Sign in as current user** to login as current user, or select **Show Advanced** to enter different user credentials.
+1. Select **Display list of available organization**.
 1. Select “Login” to move on to the next dialog window.
     ![screen where you choose your organization](media/choose-org.png "Configuration migration - choose your organization")
-1. Select your target environment where the transactional sample data will be
-1. Select “Login” to move on to the next dialog window.
+1. Select your target environment where the transactional sample data will be.
+1. Select **Login* to move on to the next dialog window.
     ![Click "import data"](media/import-data.png "import data screen")
-1. Download the AIBCustomerSatisfactionSampleData.zip file from <https://go.microsoft.com/fwlink/?linkid=2133095>
+1. Download [AIBCustomerSatisfactionSampleData.zip](https://go.microsoft.com/fwlink/?linkid=2133095)
 1. After you verify that you are connected to the correct environment, select the “…” then choose the import data file **AIBCustomerSatisfactionSampleData.zip**. Then, select **Import data**” to start the import shown in the following screen.
 
-![](media/select-zip file.png)
+    ![Select zip file](media/select-zip-file.png)
 
 You should see something like this with no errors. You can minimize but *do not close this window* until the import completes.
 
