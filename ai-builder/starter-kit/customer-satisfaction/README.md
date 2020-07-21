@@ -25,7 +25,6 @@ The customer satisfaction starter kit includes:
 
 The following illustration shows the Common Data Service entities referenced in the starter kit. The illustration communicates the direct relationships between entities and the boundary that separates the entities as transactional or analytical. Parts of this diagram will be referenced throughout this document to highlight specific components of the starter kit.
 
-> [!div class="mx-imgBorder"]
 > ![common data service entities](media/cds_entities.png "Diagram of CDS entities")
 
 The starter kit entities listed below are identified first by their display name followed by the entity’s physical name in square brackets. See the [Appendix](#starter-kit-cds-entity-fields) for additional details.
@@ -45,7 +44,7 @@ Transactional entities are those entities that are typically needed to run the d
 
 * **AIB Invoice** [aib_invoice] - Transaction identifying request for payment to the customer for a given order. In the sample data provided, the invoice is created one day after the ordered products are delivered.
 
-### Analytical Entities
+### Analytical entities
 
 Analytical entities reflect a transactional entity and are constructed using the transactional entity’s data. There are two types of analytical entities, dimensions and facts.
 
@@ -57,8 +56,7 @@ In this starter kit, an entity is an analytical type (versus a transactional typ
 
 Not all business problems or opportunities are efficiently solved with the transactional entities. With analytical entities, impact to any transactional system performance can be minimized and optimally managed and as a value proposition provide inclusion of the analytical facts into transactional applications.
 
-The starter kit uses dataflows to populate the analytical entities. The
-following analytical entities are included:
+The starter kit uses dataflows to populate the analytical entities. The following analytical entities are included:
 
 * **AIB Account Dimension** [aib_account_d]
 
@@ -182,11 +180,11 @@ the mood of any given comment.
 This is where Bob incorporates AI Builder’s sentiment analysis into a Power
 Automate flow to calculate each feedback’s overall sentiment.
 
-> [!NOTE] Look at the **AIB Execute Sentiment Analysis Feedback** Power Automate flow to see how Bob created the logic that executes sentiment analysis over the *Subject* and *Feedback* text, resulting in positive, neutral, and negative scores to produce an average score of each. The average scores are put in the calculated field, **Overall Sentiment**, to arrive at a final sentiment. See [Customer Feedback Overall Sentiment – Field Calculation](#customer-feedback-overall-sentiment-field-calculation) for formula details.
+> **Note:**Look at the **AIB Execute Sentiment Analysis Feedback** Power Automate flow to see how Bob created the logic that executes sentiment analysis over the *Subject* and *Feedback* text, resulting in positive, neutral, and negative scores to produce an average score of each. The average scores are put in the calculated field, **Overall Sentiment**, to arrive at a final sentiment. See [Customer Feedback Overall Sentiment – Field Calculation](#customer-feedback-overall-sentiment-field-calculation) for formula details.
 
 The following diagram illustrates Bob’s current progression:
 
-> [!div class="mx-imgBorder"]
+> 
 > ![Bob's progression - first diagram](media/bobs-progression.png "First diagram of Bob's progression so far")
 
 > **Progression goals**
@@ -204,7 +202,7 @@ which is **Average Sentiment** calculated by summing the *Customer Feedback*
 **Overall Sentiment** then dividing the that result by the count of total
 *Customer Feedback* rows grouped by account.
 
-> [!NOTE]
+> **Note:**
 >
 > * Look at the **AIB Populate Customer Feedback Rollup Fact** dataflow to see how Bob populated the Customer Feedback Rollup Fact entity.With the *Customer Feedback Rollup Fact* populated, using the **Average Sentiment**, Bob creates a *Power Automate* flow to calculate and update each related account’s **Is Happy Customer** with **Yes**, **No**, or **Neutral**.
 >
@@ -214,7 +212,7 @@ which is **Average Sentiment** calculated by summing the *Customer Feedback*
 
 The following diagram illustrates Bob’s current progression:
 
-> [!div class="mx-imgBorder"]
+> 
 > ![Bob's progression - second diagram](media/bobs-progression2.png "Second diagram of Bob's progression so far")
 
 > **Progression goals**
@@ -239,7 +237,7 @@ to store aggregate values calculated from their respective transactional entity.
 Each new entity, *Order Rollup Fact*, *Order Product Rollup Fact*, and *Invoice
 Rollup Fact* are populated by their own dataflow.
 
-> [!NOTE]
+> **Note:**
 > Look at the **AIB Populate Order Rollup Fact**, **AIB Populate Order Product Fact**, and **AIB Populate Invoice Rollup Fact** dataflows to see how each fact entity’s measures were populated.
 
 The following diagram illustrates Bob’s current progression:
@@ -267,12 +265,12 @@ to store aggregate values calculated from their respective transactional entity.
 Each new entity, *Order Rollup Fact*, *Order Product Rollup Fact*, and *Invoice
 Rollup Fact* are populated by their own dataflow.
 
-> [!NOTE]
+> **Note:**
 > Look at the **AIB Populate Order Rollup Fact**, **AIB Populate Order Product Fact**, and **AIB Populate Invoice Rollup Fact** dataflows to see how each fact entity’s measures were populated.
 
 The following diagram illustrates Bob’s current progression:
 
-> [!div class="mx-imgBorder"]
+> 
 > ![Bob's progression - fourth diagram](media/bobs-progression4.png "fourth diagram of Bob's progression so far")
 
 > **Progression goals**
@@ -300,19 +298,19 @@ Customer* field after which its *option set* values are presented where Bob
 No, or Neutral)* and verifies the other fields (*Yes*, *No*, *Neutral*) are
 checked then selects *Next*.
 
-> [!NOTE]
+> **Note:**
 > When a labeled field has more than two values (empty or null values do not count), the Maker is building a multiclassification model that is expected to be able to predict more than two values. Conversely, if the labeled field had only two values, the Maker is building a binary model that is expected to predict one of the two values (e.g. True or False). At this part of building the model, when presented multiple (more than two) values to predict, the Maker may choose to switch to build a binary model by selecting the Manage Outcomes located above the **What do you want to predict?** header. The Maker must be mindful when making this decision because the Maker will be required to choose which labeled fields are to be assigned *Yes*, *No*, *Ignore*, and to *Predict*.
 
 ![Review historical data](media/review-data.jpg "Review your historical outcome's data screen")
 
 In the next page, Bob is asked to select the fields that will influence the prediction. Because the field he chose to predict existed in *Account Dimension*, he is presented that entity as well as all the Account Dimension’s related source entities.
 
-> [!NOTE]
+> **Note:**
 >These are recognized as the Lookup fields in Account Dimension, which is all the entities it is direct connected as shown in the [CDS Entities](#common-data-service-entities) entity diagram.
 
 Bob’s reasoning when choosing fields is as follows:
 
-> [!NOTE]
+> **Note:**
 > See [Guide to Choosing Features](#guide-to-choosing-features) for additional insights.
 
 | **Entity**                    | **Reasoning**                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -366,7 +364,7 @@ number of input fields to retrain his model.
 Bob selects *Edit model* to narrow the set of fields to train the
 model.
 
-> [!NOTE]
+> **Note:**
 >
 > * Another option is to keep the existing trained model and instead build another model, with a different name, that then can be compared to the previous  model(s) to assist when choosing fields and targeting the best model.
 >
@@ -422,7 +420,7 @@ additional customer details in any of the related entities.
 
 In this section, we'll configure the starter kit in your environment:
 
-> [!NOTE]
+> **Note:**
 > It is recommended that you create a new environment or use a test environment to keep your production environment clean and avoid adding test\\sample. Refer section “Provisioning a new environment” here: [create-environment](https://docs.microsoft.com/en-us/power-platform/admin/create-environment)
 
 Create an environment:
@@ -447,17 +445,17 @@ Create an environment:
 
    * AIB update Account Dimension
 
-    > [!NOTE] Execute this only after successful completion of all the above-mentioned dataflows!
+    > **Note:**Execute this only after successful completion of all the above-mentioned dataflows!
 
 1. Optionally, you can run the following Power Automate flows to get hands-on experience running the Sentiment analysis model against the customer feedback and order product comments.
 
-   > [!NOTE] These were executed, therefore already populated, when you imported the transactional data following the steps in the **Import Data Using the CMT Tool** section.
+   > **Note:**These were executed, therefore already populated, when you imported the transactional data following the steps in the **Import Data Using the CMT Tool** section.
 
    * AIB Execute Sentiment Analysis Customer Feedback
    * AIB Execute Sentiment Analysis Order Product
    * AIB Execute Sentiment Analysis Customer Feedback-Internal (Do not execute)
 
-   > [!IMPORTANT] *Don’t execute the customer feedback-internal flow!* Just configure to make sure connections are set as per new environment. This is called by *AIB Execute Sentiment Analysis Customer Feedback.*
+   > **Important:** *Don’t execute the customer feedback-internal flow!* Just configure to make sure connections are set as per new environment. This is called by *AIB Execute Sentiment Analysis Customer Feedback.*
 
 ## Import Data using the Configuration Migration Tool (CMT)
 
@@ -469,21 +467,21 @@ the transactional entities.
 3. Unzip the renamed file.
 4. Run “DataMigrationUtility.exe" located in the “tools” folder which opens the following screen:
 
-![Configuration migration import data](media/config-migration.png "Configuration migration import data screen")
+    ![Configuration migration import data](media/config-migration.png "Configuration migration import data screen")
 
 1. Select the “Import data” option then select “Continue” to display the following screen:
 
-![Configuration migration login screen](media/config-migration-continue.png "Configuration migration - login")
+    ![Configuration migration login screen](media/config-migration-continue.png "Configuration migration - login")
 
 1. Select “Office 365” as deployment type .
 
 1. Select “Sign in as current user” option to login as current user *or* select **Show Advanced** to enter different user credentials.
 1. Select “Display list of available organization” option.
 1. Select “Login” to move on to the next dialog window.
-![screen where you choose your organization](media/choose-org.png "Configuration migration - choose your organization")
+    ![screen where you choose your organization](media/choose-org.png "Configuration migration - choose your organization")
 1. Select your target environment where the transactional sample data will be
 1. Select “Login” to move on to the next dialog window.
-![Click "import data"](media/import-data.png "import data screen")
+    ![Click "import data"](media/import-data.png "import data screen")
 1. Download the AIBCustomerSatisfactionSampleData.zip file from <https://go.microsoft.com/fwlink/?linkid=2133095>
 1. After you verify that you are connected to the correct environment, select the “…” then choose the import data file **AIBCustomerSatisfactionSampleData.zip**. Then, select **Import data**” to start the import shown in the following screen.
 
@@ -491,7 +489,7 @@ the transactional entities.
 
 You should see something like this with no errors. You can minimize but *do not close this window* until the import completes.
 
-   > [!IMPORTANT] Do not close this window while the import is running! It will take approximately five (5) hours to complete. If you close the window before the import completes, you will need to restart the import starting at step 1.
+   > **Important:** Do not close this window while the import is running! It will take approximately five (5) hours to complete. If you close the window before the import completes, you will need to restart the import starting at step 1.
 
 ## Configure and run dataflows
 
@@ -505,42 +503,39 @@ Follow these steps in Power Apps to configure each dataflow.
 1. On the left-side of your Power Apps, expand “Data” then select “Dataflows”
     to view the existing dataflows. You should see dataflows similar to those
     shown in the image above.
-![Edit dropdown menu ](media/dataflows-edit-menu.png "Edit dropdown menu")
+    ![Edit dropdown menu ](media/dataflows-edit-menu.png "Edit dropdown menu")
 1. At the end of each dataflow row is a “…”. Select the “…” to configure the
-    dataflow, and then select **Edit**.
-![](media/.png)
-1. Select the “Advanced editor” Query option. This opens the advanced editor.
-![Advanced editor](media/advanced-editor.png "Advanced editor screen")
+    dataflow, and then select **Edit**.    
+1. Select the **Advanced editor** query option. This opens the advanced editor.
+    ![Advanced editor](media/advanced-editor.png "Advanced editor screen")
 1. Modify with your organization’s URL (Service Root URL) between the set of
     double quotes (“ ”). This appears after ‘*Source = OData.Feed(’* text. Then,
     select “OK” when you’re done to go back to the *Power Query* screen.
-    1. Example
+    * Example:
 
-> The “https://org646c0a84.api.crm10.dynamics.com/api/data/v9.1/” shown above
-> needs to be replaced with your Organization URL.
+    > The “https://org646c0a84.api.crm10.dynamics.com/api/data/v9.1/” shown above needs to be replaced with your Organization URL.
 
-![Power query screen](media/configure-connection.png "Select configure connection")
+    ![Power query screen](media/configure-connection.png "Select configure connection")
 
 1. Select “Configure Connection” to enter your organization credentials.
 
-![Enter credentials screen](media/enter-credentials.png "select sign in")
+    ![Enter credentials screen](media/enter-credentials.png "select sign in")
 
 1. Select **Organizational Account** on the **Authentication Kind** drop down menu, and then select “Sign in” and complete the sign in process.
 
-![Enter credentials screen - connect](media/enter-credentials2.png "select connect")
+    ![Enter credentials screen - connect](media/enter-credentials2.png "select connect")
 
-> You should see a “you are currently signed in.” message just above **Sign
-> in as a different user**.
+    > You should see a “you are currently signed in.” message just above **Sign > in as a different user**.
 
 1. Select **Connect**.
 
-![Power Query screen](media/powerquery-datarows.png "screen showing data rows")
+    ![Power Query screen](media/powerquery-datarows.png "screen showing data rows")
 
-You should see something like this screen showing data rows from the source entity the dataflow will be reading to populate the corresponding fact entity. Yours may be different depending on the dataflow you are configuring.
+    You should see something like this screen showing data rows from the source entity the dataflow will be reading to populate the corresponding fact entity. Yours may be different depending on the dataflow you are configuring.
 
 1. Select **Next**
 
-![Power query field mapping screen](media/field-mapping.png "Power query field mapping screen")
+    ![Power query field mapping screen](media/field-mapping.png "Power query field mapping screen")
 
 1. In this window:
 
@@ -553,22 +548,22 @@ You should see something like this screen showing data rows from the source enti
     d.  Under **Field mapping**, map the *Source columns* to *Destination fields* based on the chosen *Destination entity*, then select *Next*. Refer to the [Dataflow Mapping
             Table](#dataflow-mapping-table) below for details.
 
-![Refresh settings screen](media/pq-refresh-settings.png "select refresh manually on the refresh settings screen")
+    ![Refresh settings screen](media/pq-refresh-settings.png "select refresh manually on the refresh settings screen")
 
 1. Select **Refresh manually** then click **Create**.
 
-![Next refresh in progress status](media/in-progress.png "status message")
+    ![Next refresh in progress status](media/in-progress.png "status message")
 
 > You should see something like the above where **Next Refresh** should show
 > **In progress** for the respective dataflow you had just configured.
 
-![](media/cabf3bd0f35079176050461dafbc6cf7.png)
+    ![Power Apps dataflows screen](media/show-refresh-history.png "Power Apps dataflows screen")
 
 1. Select the “…” located far right of the dataflow name and choose **Show refresh history** to view the status of the run.
 
-![](media/a1338fd29103452df5ebdec093eec226.png)
+![](media/refresh-succeeded.png)
 
-> You should see something like the above. Click “Close”.
+> You should see something like the above. Select **Close**.
 
 ## Dataflow mapping table
 
@@ -620,7 +615,7 @@ mentioned should be mapped to (none)).
 
 Each starter kit Power Automate flow requires configuration of each connector credentials to remove all warnings.
 
-![](media/b1de351658b6bcf655aa847f46a34004.png)
+![Starter kit solution screen](media/edit-flow.png "Starter kit solutions screen")
 
 1. Select **Solutions** located on the left panel to open the *Solutions* page.
 2. Select the **AI Builder Customer Satisfaction Starter Kit** solution to open
@@ -629,8 +624,7 @@ Each starter kit Power Automate flow requires configuration of each connector cr
     name.
 4. In the popup dialog window select “Edit” to open the flow editor.
 
-![](media/aea5dbc10f33633c33a9558954a4864e.png)
-
+![Flow checker](media/flow-checker.png "Flow checker menu option")
 
 A solid red dot in front of “Flow Checker” indicates there is an issue with the
 flow that requires correction. In the image you can also see the warning symbol
@@ -642,22 +636,19 @@ Connection to see the issue.
 > When the connection is expanded, as shown above, you will see the message,
 > in this case, “Invalid connection”.
 
-1. Select “+*Add new connection** to complete the sign-in process.
-![](media/38f588b7120254f7133732de3ebc771c.png)
+1. Select “+*Add new connection** to complete the sign-in process
+    ![Invalid connection](media/invalid-connection.png "invalid connection message appears under Connections")
 
-1. After you update the first control, each connector that requires a     connection, you can select your existing connection. If the existing connection does not exist, then you have to create a new one. Do this for all warnings until the red dot in front of the “Flow checker” disappears, indicating there are no more issues with the flow.
+1. After you update the first control, each connector that requires a connection, you can select your existing connection. If the existing connection does not exist, then you have to create a new one. Do this for all warnings until the red dot in front of the “Flow checker” disappears, indicating there are no more issues with the flow.
+    ![Flow screens](media/no-warnings.png "no warnings appear")
 
-![](media/5050de91110f2d8777699484b00f43ad.png)
-
-You should see something like this when no warnings appear.
+    > You should see something like this when no warnings appear.
 
 1. Once updated, select **Save** on the top right corner.
-2. Select the left arrow to the left of **Save**.
-
-![](media/cdc011411c913e8f165bd6dfaeb58e4b.png)
-
+1. Select the left arrow to the left of **Save**.
+![Enable flow](media/enable-flow.png) "Enable the flow"
 1. Select **Turn on** (if you do not see this then expand the “…”) to enable the flow.
-2. Once enabled, select **Run**.
+1. Once enabled, select **Run**.
 
 ## How to customize the customer satisfaction canvas application to display the published model results
 
@@ -666,63 +657,55 @@ to display the published model results.
 
 1. Sign in to your Power Apps environment
 
-![](media/a2cb9ad00d4622c2b677c06d8516521a.png)
+    ![Power Apps environment](media/pa-env.png "Power Apps environment screen")
 
 1. Located on the left panel, select “Apps”
-2. Select “AIB Customer Satisfaction” then select “Edit” above
+2. Select **AIB Customer Satisfaction** then select **Edit** above
+    ![Account dimensions screen](media/tree-view.png "Select Tree view")
+1. On the left panel, select **Tree view**.
+1. Under **Tree view** l, select **screen_customers**, then select **datatable_customerdetails**.
+1. On the far-right side properties panel, select the **selected** link and  select the new fields that were created by publishing the *Is Customer Happy* model:
 
-![A screenshot of a social media post Description automatically generated](media/7481ceaa583d0127662d008b0c116318.png)
+   * **aib_is_customer_happy_predicted**
+   * **aib_is_customer_happy_probability**
 
-1.  On the left panel, select “Tree view”
-2.  Under “Tree view” l, select “screen_customers” then select
-    “datatable_customerdetails”
-3.  On the far-right side properties panel, select the “selected” link and
-    choose the new fields that were created by publishing the Is Customer Happy
-    model:
-    1.  aib_is_customer_happy_predicted
-    2.  aib_is_customer_happy_probability
-4.  Under the **Data** panel, select **Add** to save the changes.
+1.  Under the **Data** panel, select **Add** to save the changes.
 
-![](media/98a93d684724da5a28d48b930ab7e94e.png)
+    ![Save](media/save-version.png "Save")
 
-1.  Select “File” at the top of your screen, then select “Save”.
+1. Select “File” at the top of your screen, then select “Save”.
 
-![](media/5b7e575f93e3610f38f9be9d9eb5adeb.png)
-
+    ![Publish](media/publish.png "publish")
 
 1.  Select “Publish” to publish the changes
 
-How to use the Power App AIB Customer Satisfaction application
-==============================================================
+## How to use the Power App AIB Customer Satisfaction application
+
 
 Follow the steps below to navigate the Customer Satisfaction app.
-
-![A screenshot of a social media post Description automatically generated](media/7cefc896de07690387e4bae92c03c516.png)
 
 1. Sign in to your PowerApps studio
 2. Select “Apps” on left side
 3. Select **AIB Customer Satisfaction** then select **Play**
 
-![](media/1c13c87115f02a81c78fe8625eaaa2ca.png)
+    ![Customer details screen](media/cust-details.png "Customer Details - Shows all customers/accounts")
 
-> Customer Details - Shows all customers/accounts.
+    > Customer Details - Shows all customers/accounts.
 
 1. Select any customer/account and **Select to view more details** to view the
     analytical details.
 
-![](media/03ea4e1c14b33e363f15a95d6695e8b1.png)
+    ![Analytical details screen](media/analytical-details.png "Shows all aggregate details about the accounts/customers.")
 
-> Analytical details – Shows all aggregate details about the
-> accounts/customer.
+    > Analytical details – Shows all aggregate details about the
+    > accounts/customer.
 
 1. Use the top *left* arrow to navigate back to Customer Details screen, or
     *right* arrow to see transaction details.
 
-![](media/5d33c4cc52d61e5609fa716b36ce99d1.png)
+    ![Transaction details screen](media/transaction-details.png "Shows all transaction details for deeper analysi")
 
-> A screenshot of a computer screen Description automatically generated
-
-> Transaction details - Shows all transaction details for deeper analysis.
+    > Transaction details - Shows all transaction details for deeper analysis.
 
 1. Use top left arrow to go back to analytical details.
 
