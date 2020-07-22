@@ -555,11 +555,11 @@ Follow these steps in Power Apps to configure each dataflow.
 > You should see something like the above where **Next Refresh** should show
 > **In progress** for the respective dataflow you had just configured.
 
-    ![Power Apps dataflows screen](media/show-refresh-history.png "Power Apps dataflows screen")
+![Power Apps dataflows screen](media/show-refresh-history.png "Power Apps dataflows screen")
 
 1. Select the “…” located far right of the dataflow name and choose **Show refresh history** to view the status of the run.
 
-![](media/refresh-succeeded.png)
+    ![](media/refresh-succeeded.png)
 
 > You should see something like the above. Select **Close**.
 
