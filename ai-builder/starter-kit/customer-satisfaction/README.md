@@ -160,7 +160,7 @@ not to cause any negative impact to the transactional systems, decides to create
 a new entity, *Account Dimension*, an analytical entity type, to store **Is
 Happy Customer**.
 
-#### Progression goals
+> **Progression goals**
 
 1. Create new field: **Is Happy Customer**
 1. Define valid values: 😊☹😐
@@ -169,7 +169,7 @@ Happy Customer**.
 Bob wants to use AI Builder to build a model to predict the customer’s happiness state, and update the **Is Happy Customer** field with the information. But the
 prerequisite to create any prediction model is to provide labeled values,
 examples, to train the model. Therefore, Bob will need to update enough **Is
-Happy Customer** values (from the default value: *Not Determined* ) required to train
+Happy Customer** values (from the default value: *Not Determined*) required to train
 the model.
 
 Knowing the business data, Bob thinks the comments in the *Customer Feedback* is
@@ -242,7 +242,7 @@ Rollup Fact* are populated by their own dataflow.
 
 The following diagram illustrates Bob’s current progression:
 
-> **Progression Goals**
+> **Progression goals**
 
 1. Create *Customer Feedback Rollup Fact* analytical entity
 1. Aggregate *Customer Feedback* to *Customer Feedback Rollup Fact*
@@ -282,7 +282,7 @@ Now Bob is ready to build his model and refers to [build a prediction model](htt
 
 The following describes Bob’s steps to build his model.
 
-> ![Step 1](media/c20efb9523cf729e0b786select-outcome9196913974a.jpg "step 1: select outcome") 
+> ![Step 1](media/bobs-steps-to-build.png "step 1: select outcome") 
 
 After selecting **Prediction** on the  AI Builder Build page, Bob enters the model
 name, *Is Happy Customer*, choosing the same name as the field he created the
