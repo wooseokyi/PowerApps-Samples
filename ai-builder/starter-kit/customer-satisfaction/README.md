@@ -552,8 +552,8 @@ Refer to the following table to complete mapping the dataflow fields. Columns no
 mentioned should be mapped to (none)).
 
 | **Dataflow**    | **Load setting destination entity** | **Field Mapping source column** |   **Field mapping destination field** |
-| -------------|-----------|------------|--------------|
-| AIB Populate Customer Feedback Rollup Fact | aib_customerfeedbackrollup_f        | aib_accountid                             | aib_accountid                             |
+ -------------|-----------|------------|--------------|
+| AIB Populate Customer Feedback Rollup Fact | aib_customerfeedbackrollup_f    | aib_accountid        | aib_accountid           |
 |                                            |                                     | Average Feedback Sentiment Negative Score | aib_averagefeedbacksentimentnegativescore |
 |                                            |                                     | Average Feedback Sentiment Neutral Score  | aib_averagefeedbacksentimentneutralscore  |
 |                                            |                                     | Average Feedback Sentiment Positive Score | aib_averagefeedbacksentimentpositivescore |
@@ -602,7 +602,7 @@ Each starter kit Power Automate flow requires configuration of each connector cr
     the solution page.
 3. Identify the flow to configure and select the “…” left of the flow’s display
     name.
-4. In the popup dialog window select “Edit” to open the flow editor.
+4. In the popup dialog window select **Edit** to open the flow editor.
 
 ![Flow checker](media/flow-checker.png "Flow checker menu option")
 
@@ -626,7 +626,7 @@ Connection to see the issue.
 
 1. Once updated, select **Save** on the top right corner.
 1. Select the left arrow to the left of **Save**.
-![Enable flow](media/enable-flow.png) "Enable the flow"
+    ![Enable flow](media/enable-flow.png) "Enable the flow"
 1. Select **Turn on** (if you do not see this then expand the “…”) to enable the flow.
 1. Once enabled, select **Run**.
 
@@ -635,15 +635,15 @@ Connection to see the issue.
 Use the following guidelines to customize the customer satisfaction canvas app
 to display the published model results.
 
-1. Sign in to your Power Apps environment
+1. Sign in to your Power Apps environment.
 
     ![Power Apps environment](media/pa-env.png "Power Apps environment screen")
 
-1. Located on the left panel, select “Apps”
-2. Select **AIB Customer Satisfaction** then select **Edit** above
+1. In the left panel, select **Apps**. 
+1. Select **AIB Customer Satisfaction** then select **Edit** above
     ![Account dimensions screen](media/tree-view.png "Select Tree view")
 1. On the left panel, select **Tree view**.
-1. Under **Tree view** l, select **screen_customers**, then select **datatable_customerdetails**.
+1. Under **Tree view**, select **screen_customers**, then select **datatable_customerdetails**.
 1. On the far-right side properties panel, select the **selected** link and  select the new fields that were created by publishing the *Is Customer Happy* model:
 
    * **aib_is_customer_happy_predicted**
@@ -653,20 +653,19 @@ to display the published model results.
 
     ![Save](media/save-version.png "Save")
 
-1. Select “File” at the top of your screen, then select “Save”.
+1. Select **File** at the top of your screen, then select **Save**”.
 
     ![Publish](media/publish.png "publish")
 
-1.  Select “Publish” to publish the changes
+1.  Select **Publish** to publish the changes
 
 ## How to use the Power App AIB Customer Satisfaction application
 
-
 Follow the steps below to navigate the Customer Satisfaction app.
 
-1. Sign in to your PowerApps studio
-2. Select “Apps” on left side
-3. Select **AIB Customer Satisfaction** then select **Play**
+1. Sign in to your PowerApps studio.
+2. Select **Apps** on left side.
+3. Select **AIB Customer Satisfaction** then select **Play**.
 
     ![Customer details screen](media/cust-details.png "Customer Details - Shows all customers/accounts")
 
@@ -696,14 +695,14 @@ Follow the steps below to navigate the Customer Satisfaction app.
 #### Account – Adds the following custom fields:
 
 | **Display Name**         | **Physical Name**      | **Values** |
-|--------------------------|------------------------|------------|
+| :------------- | :-------- | :-------- |
 | AIB Account Effective On | aib_accounteffectiveon |            |
 | AIB Account Expired On   | aib_accountexpiredon   |            |
 
 #### AIB Customer Feedback
 
 | **Display Name**                  | **Physical Name**                  | **Values**                                         |
-|-----------------------------------|------------------------------------|----------------------------------------------------|
+| :------------| :------------ | :---------------- |
 | AIB Customer Feedback             | aib_customerfeedbackid             |                                                    |
 | Account                           | aib_accountid                      |                                                    |
 | Subject                           | aib_subject                        |                                                    |
@@ -722,8 +721,8 @@ Follow the steps below to navigate the Customer Satisfaction app.
 
 ### AIB Order
 
-| **Display Name**                                                                                           | **Physical Name**           | **Values**                                          |
-|------------------------------------------------------------------------------------------------------------|-----------------------------|-----------------------------------------------------|
+| **Display name** | **Physical Name**       |  **Values**   |
+| :------------ | :------ | :-------- |
 | AIB Order                                                                                                  | aib_orderid                 |                                                     |
 | Account                                                                                                    | aib_accountid               |                                                     |
 | Order Number                                                                                               | aib_ordernumber             |                                                     |
@@ -741,7 +740,7 @@ Follow the steps below to navigate the Customer Satisfaction app.
 ### AIB Order Product
 
 | **Display Name**                                                            | **Physical Name**                  | **Values**                                          |
-|-----------------------------------------------------------------------------|------------------------------------|-----------------------------------------------------|
+| :------ | :-------- | :------ |
 | AIB Order Product                                                           | aib_orderproductid                 |                                                     |
 | Order                                                                       | aib_orderid                        |                                                     |
 | Line Item Number                                                            | aib_lineitemnumber                 |                                                     |
