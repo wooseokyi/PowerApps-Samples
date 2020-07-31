@@ -761,7 +761,7 @@ Follow the steps below to navigate the Customer Satisfaction app.
 ### <br>AIB Invoice
 
 | **Display Name**                                   | **Physical Name**       | **Values**                                                 |
-|----------------------------------------------------|-------------------------|------------------------------------------------------------|
+| :------ | :--------- | :-------- |
 | AIB Invoice                                        | aib_invoiceid]          |                                                            |
 | Account                                            | aib_accountid]          |                                                            |
 | Invoice ID                                         | aib_invoicenumber]      |                                                            |
@@ -779,7 +779,7 @@ Follow the steps below to navigate the Customer Satisfaction app.
 ### Account Dimension
 
 | **Display Name**                     | **Physical Name**                                | **Values**                    |
-|--------------------------------------|--------------------------------------------------|-------------------------------|
+| :------ | :------- | :------ |
 | AIB Invoice                          | aib_ishappycustomer                              | Yes No Neutral Not Determined |
 | Is Happy Customer                    | aib_accountid                                    |                               |
 | Account                              | aib_customerfeedbackrollup_fid                   |                               |
