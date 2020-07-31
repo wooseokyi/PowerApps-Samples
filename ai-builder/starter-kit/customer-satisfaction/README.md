@@ -278,12 +278,11 @@ The following diagram illustrates Bob’s current progression:
 1. Create Transactional Analytical Fact entities
 2. Aggregate (∑) Transaction entity’s measures
 
-Now Bob is ready to build his model and refers to [build a prediction
-model](https://docs.microsoft.com/en-us/ai-builder/prediction-create-model) to guide his decisions and provide additional insights when building a prediction model.
+Now Bob is ready to build his model and refers to [build a prediction model](https://docs.microsoft.com/en-us/ai-builder/prediction-create-model) to guide his decisions and provide additional insights when building a prediction model.
 
 The following describes Bob’s steps to build his model.
 
-![Step 1](media/c20efb9523cf729e0b786select-outcome9196913974a.jpg "step 1: select outcome) 
+> ![Step 1](media/c20efb9523cf729e0b786select-outcome9196913974a.jpg "step 1: select outcome") 
 
 After selecting **Prediction** on the  AI Builder Build page, Bob enters the model
 name, *Is Happy Customer*, choosing the same name as the field he created the
@@ -325,42 +324,32 @@ Bob’s reasoning when choosing fields is as follows:
 Based on his reasoning, Bob unchecks the *Account Dimension*’s, the *Account* fields, and the *Customer Feedback Rollup Fact*’s fields. Not knowing which fields to
 choose from the remaining analytical entities, he chooses all the fields located
 in the *Order Rollup Fact*, *Order Product Rollup Fact*, and *Invoice Rollup
-Fact* entities then selects *Next*.
+Fact* entities then selects **Next**.
 
 ![Focus your model](media/focus-model.jpg "Focus your model with filters screen")
 
 
-Bob clicks **Next**, accepting the default to skip the step to **Focus your model
-with filters**.
+Bob clicks **Next**, accepting the default to skip the step to **Focus your model with filters**.
 
-![Model summary screen](media/model-summary.jpg "Model summary screen")
+> ![Model summary screen](media/model-summary.jpg "Model summary screen")
 
-On the *Model Summary* page, Bob verifies his choices and after confirming
-they are correct clicks *Train…*
+On the *Model Summary* page, Bob verifies his choices and after confirming they are correct clicks **Train…**
 
-![Model training](media/training-screen.jpg "Your model is training message")
+> ![Model training](media/training-screen.jpg "Your model is training message")
 
-This triggers a message stating, “Your mode is training”, and that he can close
-the window.
+This triggers a message stating, “Your mode is training”, and that he can close the window.
 
 Bob closes the page.
 
-![AI Builder Models](media/models-screen.png "Models screen in AI Builder")
+> ![AI Builder Models](media/models-screen.png "Models screen in AI Builder")
 
-![Model details](media/model-details.png "Model details screen in AI Builder")
+> ![Model details](media/model-details.png "Model details screen in AI Builder")
 
-Bob opens the *AI Builder Models* page and locates his model, *Is Happy
-Customer*. When it shows *Trained*, Bob opens the model.
+Bob opens the *AI Builder Models* page and locates his model, *Is Happy Customer*. When it shows *Trained*, Bob opens the model.
 
-Not expecting an acceptable model on his first attempt, Bob is surprised that
-the model’s performance received a *C* grade with 55% prediction accuracy and
-when he opens “See details” it shows the score in the middle range of C. Wanting
-to improve the performance, Bob reviews the *Most influential data* as a
-guideline to see which fields he should consider out of the original large
-number of input fields to retrain his model.
+Not expecting an acceptable model on his first attempt, Bob is surprised that the model’s performance received a *C* grade with 55% prediction accuracy and when he opens “See details” it shows the score in the middle range of C. Wanting to improve the performance, Bob reviews the *Most influential data* as a guideline to see which fields he should consider out of the original large number of input fields to retrain his model.
 
-Bob selects *Edit model* to narrow the set of fields to train the
-model.
+Bob selects **Edit model** to narrow the set of fields to train the model.
 
 > **Note:**
 >
@@ -382,8 +371,7 @@ application](#powerapp-canvas-application-aib-customer-satisfaction).
 
 ### Model enhancement considerations
 
-For your business, consider including other customer related entities from
-different areas of the business such as:
+For your business, consider including other customer related entities from different areas of the business such as:
 
 * Customer Service that addresses the day-to-day challenges customers face with your products or services.
 * Sales that engage customers in pre- or post-sales activities
@@ -461,7 +449,7 @@ In this section, we'll import the starter kit’s sample data into
 the transactional entities.
 
 1. Download the CMT NuGet package from NuGet’s [Dynamics 365 Configuration Migration Tool](https://www.nuget.org/packages/Microsoft.CrmSdk.XrmTooling.ConfigurationMigration.Wpf) web page.
-2. Rename the Nuget file extension from: “.nupkg” to “.zip”.
+1. Rename the Nuget file extension from: “.nupkg” to “.zip”.
 3. Unzip the renamed file.
 4. Run “**DataMigrationUtility.exe**,  in the **tools** folder to open the following screen:
 
@@ -515,13 +503,8 @@ Follow these steps in Power Apps to configure each dataflow.
 
     ![Power query screen](media/configure-connection.png "Select configure connection")
 
-1. Select “Configure Connection” to enter your organization credentials.
-
-    ![Enter credentials screen](media/enter-credentials.png "select sign in")
-
+1. Select **Configure Connection** to enter your organization credentials.
 1. Select **Organizational Account** on the **Authentication Kind** drop down menu, and then select “Sign in” and complete the sign in process.
-
-    ![Enter credentials screen - connect](media/enter-credentials2.png "select connect")
 
     > You should see a “you are currently signed in.” message just above **Sign > in as a different user**.
 
@@ -568,9 +551,8 @@ Follow these steps in Power Apps to configure each dataflow.
 Refer to the following table to complete mapping the dataflow fields. Columns not
 mentioned should be mapped to (none)).
 
-| **Dataflow**                               | **Load setting Destination Entity** | **Field Mapping**                         |                                           |
-|--------------------------------------------|-------------------------------------|-------------------------------------------|-------------------------------------------|
-|                                            |                                     | **Source column**                         | **Destination field**                     |
+| **Dataflow**    | **Load setting destination entity** | **Field Mapping source column** |   **Field mapping destination field** |
+| -------------|-----------|------------|--------------|
 | AIB Populate Customer Feedback Rollup Fact | aib_customerfeedbackrollup_f        | aib_accountid                             | aib_accountid                             |
 |                                            |                                     | Average Feedback Sentiment Negative Score | aib_averagefeedbacksentimentnegativescore |
 |                                            |                                     | Average Feedback Sentiment Neutral Score  | aib_averagefeedbacksentimentneutralscore  |
