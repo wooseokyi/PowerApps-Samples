@@ -2,6 +2,8 @@
 using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
+using CrmEarlyBound;
+using Microsoft.Extensions.Logging;
 
 namespace PowerPlatform.Dataverse.CodeSamples
 {
@@ -42,9 +44,39 @@ namespace PowerPlatform.Dataverse.CodeSamples
         {
             Program app = new();
 
+            ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+                    builder.AddConsole()
+                           .AddConfiguration(app.Configuration.GetSection("Logging")));
+
             // Create a Dataverse service client using the default connection string.
-            ServiceClient serviceClient =
-                new( app.Configuration.GetConnectionString("default") );
+
+            // ServiceClient 커넥션 일반
+            //    ServiceClient serviceClient =
+            //        new( app.Configuration.GetConnectionString("default2") );
+
+            // ServiceClient 커넥션에 로깅 추가
+            ServiceClient serviceClient = new ServiceClient(
+                dataverseConnectionString: app.Configuration.GetConnectionString("default2"),
+                logger: loggerFactory.CreateLogger<Program>());
+
+            CrmServiceContext context = new CrmServiceContext((IOrganizationService)serviceClient);
+            var data = (from a in context.ContactSet
+                        where a.FirstName == "Wooseok"
+                        select new
+                        {
+                            FirstName = a.FirstName
+                        }).FirstOrDefault();
+
+            // Start    - Early Bound Test By Wooseok
+            Contact con = new Contact()
+            {
+                FirstName = "Wooseok" + DateTime.Now.ToString("fff"),
+                LastName = "Lee"
+            };
+
+            serviceClient.Create(con);
+            // End      - Early Bound Test
+
 
             // Create an in-memory account named Nightmare Coffee.
             Entity account = new("account");
@@ -75,7 +107,7 @@ namespace PowerPlatform.Dataverse.CodeSamples
             Console.ReadKey();
 
             // In Dataverse, delete the created account, and then dispose the connection.
-            serviceClient.Delete(account.LogicalName, account.Id);
+//            serviceClient.Delete(account.LogicalName, account.Id);
             serviceClient.Dispose();
         }
     }

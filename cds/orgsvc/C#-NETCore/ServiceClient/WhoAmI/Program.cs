@@ -21,7 +21,6 @@ namespace PowerPlatform.Dataverse.CodeSamples
         /// </summary>
         IConfiguration Configuration { get; }
 
-
         /// <summary>
         /// Constructor. Loads the application configuration settings from a JSON file.
         /// </summary>
@@ -29,7 +28,7 @@ namespace PowerPlatform.Dataverse.CodeSamples
         {
             // Get the path to the appsettings file. If the environment variable is set,
             // use that file path. Otherwise, use the runtime folder's settings file.
-            string? path = Environment.GetEnvironmentVariable("DATAVERSE_APPSETTINGS");
+            string? path = Environment.GetEnvironmentVariable("DATAVERSE_APPSETTINGS"); // 윈도우즈 환경변수 설정 (계정과 관련된 정보)
             if (path == null) path = "appsettings.json";
 
             // Load the app's configuration settings from the JSON file.

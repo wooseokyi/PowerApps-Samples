@@ -50,7 +50,7 @@ namespace PowerPlatform.Dataverse.CodeSamples
 
             // Create a Dataverse service client using the default connection string.
             ServiceClient serviceClient = new ServiceClient(
-                dataverseConnectionString: app.Configuration.GetConnectionString("default"),
+                dataverseConnectionString: app.Configuration.GetConnectionString("default2"),
                 logger: loggerFactory.CreateLogger<Program>());
 
             // Send a WhoAmI message request to the Organization service to obtain  
